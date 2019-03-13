@@ -1,0 +1,46 @@
+---
+##################################################################################################
+# face
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: face
+  labels:
+    app: face
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    name: http
+  selector:
+    app: face
+  type: LoadBalancer
+  loadBalancerIP: ""
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: face
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: face
+    spec:
+      containers:
+      - name: face
+        image: gcr.io/${GCP_PROJECT_ID}/${IMAGE_FACE}
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        env:
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: ${GOOGLE_APPLICATION_CREDENTIALS}
+          - name: GCP_PROJECT_ID
+            value: ${GCP_PROJECT_ID}
+          - name: GCP_PUBSUB_REQUEST_NAME
+            value: ${GCP_PUBSUB_REQUEST_NAME}
+          - name: GCP_PUBSUB_RESPONSE_NAME
+            value: ${GCP_PUBSUB_RESPONSE_NAME}

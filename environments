@@ -1,0 +1,17 @@
+# RND_KEY
+RND_KEY=msg-mercury
+# 示範用專案ID
+GCP_PROJECT_ID=projectid-${RND_KEY}
+# 偏好的 GCP zone
+GCP_ZONE=asia-east1-a
+# GKE 名稱
+GCP_GKE_NAME=pubsub-k8s-name-${RND_KEY}
+# Google Pub/Sub admin Service Account
+GCP_PUBSUB_ADMIN=pubsub-admin-${RND_KEY}
+# Google Pub/Sub topic name
+GCP_PUBSUB_TOPIC=pubsub-topic-face
+# Google pub/sub credential file path
+#GOOGLE_APPLICATION_CREDENTIALS=/etc/google/auth/pubsub.json
+
+#DOCKER IMAGE
+IMAGE_FACE=mercury-face
