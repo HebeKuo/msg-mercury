@@ -12,6 +12,6 @@ COPY supervisord.conf /python/supervisord.conf
 RUN mkdir -p /etc/google/auth
 COPY pubsub.json /etc/google/auth/pubsub.json
 
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["/usr/bin/supervisord", "-c", "/python/supervisord.conf"]
