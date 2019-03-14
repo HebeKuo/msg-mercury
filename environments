@@ -8,8 +8,12 @@ GCP_GKE_NAME=pubsub-k8s-name-${RND_KEY}
 GCP_PUBSUB_ADMIN=pubsub-admin-${RND_KEY}
 # Google Pub/Sub topic name
 GCP_PUBSUB_TOPIC=pubsub-topic-face
+
 # Google pub/sub credential file path
 #GOOGLE_APPLICATION_CREDENTIALS=/etc/google/auth/pubsub.json
+
+# https://cloud.google.com/compute/docs/machine-types
+GCP_MACHINE_TYPE=n1-standard-1
 
 #DOCKER IMAGE
 IMAGE_FACE=face:v1
